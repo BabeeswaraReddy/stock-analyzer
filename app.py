@@ -682,28 +682,40 @@ if analyze:
         # Trend summary
         st.subheader("🧠 Trend Summary")
 
-        if (
-            "MA50" in data.columns
-            and "MA200" in data.columns
-        ):
-            ma50 = data["MA50"].dropna()
-            ma200 = data["MA200"].dropna()
+        ma50_values = data["MA50"].dropna()
+        ma200_values = data["MA200"].dropna()
 
-            if not ma50.empty and not ma200.empty:
-                if float(ma50.iloc[-1]) > float(ma200.iloc[-1]):
-                    st.success(
-                        "MA50 is above MA200, suggesting a positive trend."
-                    )
-                else:
-                    st.warning(
-                        "MA50 is below MA200, suggesting a weaker trend."
-                    )
+        if ma50_values.empty or ma200_values.empty:
+            st.warning("Unable to calculate moving averages. Check stock data.")
+        else:
+            ma50 = float(ma50_values.iloc[-1])
+            ma200 = float(ma200_values.iloc[-1])
+
+            col1, col2 = st.columns(2)
+            col1.metric("MA50", f"{ma50:.2f}")
+            col2.metric("MA200", f"{ma200:.2f}")
+
+            if ma50 > ma200:
+                st.success(
+                    "📈 Positive trend: MA50 is above MA200."
+                )
+            elif ma50 < ma200:
+                st.warning(
+                    "📉 Negative trend: MA50 is below MA200."
+                )
+            else:
+                st.info("➡️ Neutral trend: Both averages are equal.")
+
+            if len(data) < 200:
+                st.caption(
+                    "Note: Fewer than 200 records are available. "
+                    "The moving averages may use limited history."
+                )
 
         st.caption(
-            "Educational analysis only. Indicators are not guaranteed "
-            "trading signals or financial advice."
+            "Educational analysis only. Not financial advice."
         )
-
+                
         # Download data
         csv = data.to_csv().encode("utf-8")
         st.download_button(
