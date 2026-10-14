@@ -1,1 +1,12 @@
-{"babeeswarareddyirala@gmail.com": "Bunny@2005"}
+{
+  "babeeswarareddyirala@gmail.com": "Bunny@2005",
+  "Bunny": "Bunny@123",
+  "Bunny123": {
+    "salt": "92e1c1c3541ddad84afaafc3f83c5fb5",
+    "hash": "cab82b467f19a78d2705e6d26fa84243fd844cc0c29fe1596ae255023d2323ba"
+  },
+  "Bunny1234": {
+    "salt": "38d781c62925e7ba20b46e92e80db36c",
+    "hash": "cc9da1de7e08b92ccd9a184d72ad229b610d1b747eabbd56a19fdf854d985788"
+  }
+}
