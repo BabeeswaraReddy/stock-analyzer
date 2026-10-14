@@ -1,26 +1,37 @@
-# 📊 Stock Market Dashboard
+# Stock Market Dashboard
 
-A real-time stock trend analyzer built using Python and Streamlit.
+An interactive stock analysis application built using Python and Streamlit.
 
-## 🚀 Features
+## Features
 
-- 📈 Candlestick chart
-- 📊 Moving Averages (MA50, MA200)
-- 📉 RSI Indicator
-- 🧠 Market Insights
-- 🚨 Buy/Sell Signals
-- ⚡ Live Data (Yahoo Finance)
+- Stock market data retrieval using Yahoo Finance via yfinance
+- Interactive candlestick charts using Plotly
+- Moving averages: MA50 and MA200
+- Relative Strength Index (RSI)
+- Stock trend analysis
+- CSV download of analyzed data
+- Login and registration interface
 
-## 🧠 Tech Stack
+## Technology Stack
 
 - Python
-- Pandas
-- yFinance API
-- Plotly
 - Streamlit
+- Pandas
+- Plotly
+- yfinance
 
-## ▶️ Run the App
+## Run Locally
 
-```bash
-pip install -r requirements.txt
-python -m streamlit run app.py
+Install dependencies:
+
+    python -m pip install -r requirements.txt
+
+Start the application:
+
+    python -m streamlit run app.py
+
+## Disclaimer
+
+This application is for educational purposes only.
+It does not provide guaranteed trading signals or financial advice.
+Market data availability and delays depend on the data provider.
